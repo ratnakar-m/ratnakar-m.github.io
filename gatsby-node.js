@@ -3,5 +3,19 @@
  *
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// You can delete this file if you're not using it
+exports.onCreateNode = ({ node, getNode, actions }) => {
+    console.log(`Node created of type "${node.internal.type}`)
+    if (node.internal.type === `MarkdownRemark`) {
+        console.log("**************"+node.parent.fileName+"***************")
+        const slug = createSlug(createFilePath({ node, getNode, basePath: `docs` }))
+
+        createNodeField({
+            node,
+            name: `slug`,
+            value: slug,
+        })
+    }
+}
+
