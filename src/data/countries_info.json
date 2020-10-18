@@ -1,0 +1,6 @@
+
+[
+  { "name":"Ireland",  "income":53000, "life": 78, "pop":6378 },
+  { "name":"Norway",   "income":73000, "life": 87, "pop":5084 },
+  { "name":"Tanzania", "income":27000, "life": 50, "pop":3407 }
+]

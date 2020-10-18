@@ -18,7 +18,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,
-        path: `${__dirname}/src/docs`,
+        path: `${__dirname}/src/content`,
       },
     },
     `gatsby-transformer-remark`,
@@ -36,5 +36,38 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          //Authorization: `bearer ${process.env.GH_TOKEN}`,
+          Authorization: `bearer 68cd138b932b1735c5caa6a6030e48ab5e8895af`,
+        }
+      },
+    },
+    /*{
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.dev/env-vars
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        // HTTP headers alternatively accepts a function (allows async)
+        headers: async () => {
+          return {
+            Authorization: await `68cd138b932b1735c5caa6a6030e48ab5e8895af`,
+          }
+        },
+        // Additional options to pass to node-fetch
+        fetchOptions: {},
+      },
+    }*/
   ],
 }

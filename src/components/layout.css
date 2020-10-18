@@ -1,9 +1,8 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em georgia, serif, sans-serif;
-  box-sizing: border-box;
-  overflow-y: scroll;
+  /*font: 112.5%/1.45em georgia, serif, sans-serif;*/
+  height: 100%;
 }
 body {
   margin: 0;
@@ -594,4 +593,26 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+
+#___gatsby {
+  height: 100%;
+}
+
+#gatsby-focus-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* https://dev.to/domysee/keeping-the-footer-at-the-bottom-with-css-flexbox-5h5f */
+
+#headerWrapper, #footerWrapper, #mainWrapper {
+  flex-shrink: 0;
+}
+
+#mainWrapper {
+  flex-grow: 1;
 }

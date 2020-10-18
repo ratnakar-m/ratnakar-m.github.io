@@ -1,0 +1,51 @@
+[
+  {
+    "text":"Micro Services",
+    "size":"95"
+  },
+  {
+    "text":"Machine Learning",
+    "size":"90"
+  },
+  {
+    "text":"Cloud Computing",
+    "size":"88"
+  },
+  {
+    "text":"Java",
+    "size":"80"
+  },
+  {
+    "text":"Web Technologies",
+    "size":"85"
+  },
+  {
+    "text":"Elastic Search",
+    "size":"55"
+  },
+  {
+    "text":"Docker",
+    "size":"65"
+  },
+  {
+    "text":"Javascript",
+    "size":"80"
+  },
+  {
+    "text":"Data Mining",
+    "size":"88"
+  },
+  {
+    "text":"Scripting",
+    "size":"65"
+  },
+  {
+    "text":"Devops",
+    "size":"60"
+  },
+  {
+    "text":"Spring",
+    "size":"70"
+  }
+]
+

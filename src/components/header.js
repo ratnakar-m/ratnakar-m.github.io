@@ -1,62 +1,84 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { Avatar } from "@primer/components"
+import headerStyles from "./header.module.css"
+import { graphql, useStaticQuery } from 'gatsby'
 
-const ListLink = props => (
-    <li style={{ display: `inline-block`, marginRight: `1rem`, color: `white`,
-        textDecoration: `none`,
-        fontSize:`60%`,
-        padding:`10px` }}>
-        <Link to={props.to}>{props.children}</Link>
-    </li>
-)
-
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-        background: `MidnightBlue`,
-        marginBottom: `1.45rem`,
-        opacity:0.9,
-        height:`3rem`
-    }}
-  >
-    <div
-      style={{
-        //margin: `1 auto`,
-        //maxWidth: 960,
-        //padding: `0.25rem 0.4rem`,
-      }}
-    >
-      <h1 style={{ margin: 0
-      }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-              fontSize:`60%`,
-              padding:`10px`
-          }}
-        >
-          {siteTitle}
-        </Link>
-          <ul style={{ listStyle: `none`, float: `right` }}>
-              <ListLink to="/">Home</ListLink>
-              <ListLink to="/about/">About</ListLink>
-              <ListLink to="/contact/">Contact</ListLink>
-              <ListLink to="/blogs/">Blogs</ListLink>
-          </ul>
-      </h1>
+const MenuItem = ({ text, url, focus }) => (
+    <div>
+        <li className={focus?headerStyles.menuItemFocus:headerStyles.menuItem}>
+            <Link to={url}>
+                <p>{text}</p>
+            </Link>
+        </li>
     </div>
-  </header>
 )
+
+{/*<div style={{display: 'flex', 'flex-direction': 'row'}}>*/}
+{/*    <div className={headerStyles.headStrip}>*/}
+{/*<Avatar src={avatarUrl} alt='user-avatar' className='circle' mb={3}  size={40} padding={2}></Avatar>*/}
+{/* <img style={{
+            'border-radius': `50%`,
+            margin: `5px 5px 5px 5px`
+            }} className="circle" alt="user-avatar" src={avatarUrl} width="40" height="40"/>*/}
+
+const NavigationArea = ({ avatarUrl, location }) => (
+    <div style={{'display': 'flex', 'flexDirection': 'row'}}>
+        <img className={headerStyles.avatarRounded} alt="user-avatar" src={avatarUrl} width="35" height="35"/>
+        <div style={{'justifyContent': 'flexEnd'}}>
+            <nav className={headerStyles.menuBar}>
+                <ul>
+                    <MenuItem text='Home' url='/' focus={location === 'home'}/>
+                    <MenuItem text='About' url='/about' focus={location === 'about'}/>
+                    <MenuItem text='Blogs' url='/blogs' focus={location === 'blogs'}/>
+                    <MenuItem text='Contact' url='/contact' focus={location === 'contact'}/>
+                </ul>
+            </nav>
+        </div>
+    </div>
+)
+
+function Header({ siteTitle, navLocation }) {
+    const {github: {viewer: user},} = useStaticQuery(graphql`
+                              query {
+                                github {
+                                  viewer {
+                                    email
+                                    avatarUrl
+                                    name
+                                  }
+                                }
+                              }`)
+    const {
+        email,
+        avatarUrl,
+        name,
+    } = user
+
+    return (
+        <header className={headerStyles.header}>
+            <NavigationArea avatarUrl={avatarUrl} location={navLocation}/>
+        </header>
+    )
+}
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+    siteTitle: PropTypes.string,
+    navLocation: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+    siteTitle: ``,
+    navLocation: ``,
+}
+
+MenuItem.propTypes = {
+    focus: PropTypes.bool,
+}
+
+MenuItem.defaultProps = {
+    focus: false,
 }
 
 export default Header
