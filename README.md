@@ -1,3 +1,5 @@
+![Full Build and Deploy](https://github.com/ratnakar-m/ratnakar-m.github.io/workflows/Full%20Build%20and%20Deploy/badge.svg)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
