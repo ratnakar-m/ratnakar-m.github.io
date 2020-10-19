@@ -1,5 +1,6 @@
 
-console.log(`**************Using environment config****************: '${process.env.GITHUB_TOKEN}'`)
+console.log(`**************Using environment config****************: ${process.env.GITHUB_TOKEN}`)
+
 
 module.exports = {
   siteMetadata: {
