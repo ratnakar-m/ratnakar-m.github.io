@@ -109,8 +109,8 @@ const WordCloudViz = () => {
     )
 
     return (
-        <Layout navLocation="wordcloud">
-            <SEO title="Words Cloud Viz" />
+        <Layout headerText="about">
+            <SEO title="About" />
             <div style={{'display': 'flex', 'flexDirection': 'row'}}>
                 {/*<div id='adjectives'></div>*/}
                 <div id='skillset' style={{"border": "1px solid grey"}}></div>

@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Image Classification",
+    "date": "2018-08",
+    "description":
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum repudiandae, autem eos voluptatum assumenda cum laborum iure nam in accusantium.",
+    "url": "https://example.com",
+    "thumbnailImage": "../images/projects/image_classification.png"
+  },
+  {
+    "title": "Hyperparameter tuning in Deep Networks",
+    "date": "2018-09",
+    "description":
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum repudiandae, autem eos voluptatum assumenda cum laborum iure nam in accusantium.",
+    "url": "https://example.com",
+    "thumbnailImage": "../images/projects/cifar-10.png"
+  }
+]

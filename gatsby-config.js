@@ -1,19 +1,16 @@
-/*require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-});*/
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
-console.log(`**************Using environment config****************: ${process.env.NODE_ENV}`)
-console.log(`**************Using environment config****************: ${process.env.GATSBY_GH_TOKEN}`)
+//console.log(`**************Using environment config****************: ${process.env.NODE_ENV}`)
+//console.log(`**************Using environment config****************: ${process.env.GATSBY_GH_TOKEN}`)
 
 
 module.exports = {
   siteMetadata: {
     title: `Ratnakar Rao Mallayagari`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@ratnak`,
+    author: `@ratnakar-m`,
     portfolio_name:`Ratnakar Rao Mallayagari`
   },
   plugins: [
@@ -25,6 +22,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -61,31 +59,8 @@ module.exports = {
         url: 'https://api.github.com/graphql',
         headers: {
           Authorization : `Bearer ${process.env.GATSBY_GH_TOKEN}`
-          //Authorization: 'bearer ${process.env.GH_TOKEN}',
-          //Authorization: 'bearer ${{secrets.GH_TOKEN}}'
         }
       },
-    },
-    /*{
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
-        // HTTP headers
-        headers: {
-          // Learn about environment variables: https://gatsby.dev/env-vars
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-        // HTTP headers alternatively accepts a function (allows async)
-        headers: async () => {
-          return {
-            Authorization: await `68cd138b932b1735c5caa6a6030e48ab5e8895af`,
-          }
-        },
-        // Additional options to pass to node-fetch
-        fetchOptions: {},
-      },
-    }*/
+    }
   ],
 }

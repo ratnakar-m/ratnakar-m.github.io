@@ -1,40 +1,61 @@
-import React from "react"
-import styles from "./about-css-modules.module.css"
-import Container from "../components/container"
-import PropTypes from "prop-types";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Img from 'gatsby-image';
+import Button from '../components/button';
+import styles from '../styles/projects.css'
 
-const Project = props => (
-    <div className={styles.Project}>
-        <img src={props.thumbnail} className={styles.avatar} alt="Project" />
-        <div className={styles.description}>
-            <h2 className={styles.projectName}>{props.username}</h2>
-            <p className={styles.excerpt}>{props.excerpt}</p>
-        </div>
-    </div>
-)
-
-Project.propTypes = {
-    thumbnail: PropTypes.string,
-    projectName: PropTypes.string,
-    excerpt: PropTypes.string
-}
-
-export default function Projects() {
-    return (
-        <Container>
-            <h1>My Projects</h1>
-            <p>Some of my interesting projects...</p>
-            <Project
-                projectName="Image Classification"
-                thumbnail=""
-                excerpt="Image Classification. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+const ProjectsPage = ({ data }) => (
+    <Layout>
+            <SEO
+                title="Projects"
+                keywords={[`gatsby`, `application`, `react`, `projects`]}
             />
-            <Project
-                projectName="Hyperparameter Tuning in Deep Networks"
-                thumbnail="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
-                excerpt="Hyperparameter Tuning in Deep Networks. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-            />
-        </Container>
-    )
-}
-console.log(styles)
+            <h1>Projects</h1>
+            <div className="project-list">
+                    {data.allProjectsJson.edges.map(project => (
+                        <div key={project.node.id} className="item">
+
+                            <div className="content">
+                                    <h2>{project.node.title}</h2>
+                                    <div className="excerpt">
+                                            {project.node.description}
+                                    </div>
+                                    <a href={project.node.url}>
+                                            <Button buttonText="Visit the Website" />
+                                    </a>
+                            </div>
+                            <div className="thumbnail">
+                                <Img fluid={project.node.thumbnailImage.childImageSharp.fluid} />
+                            </div>
+                        </div>
+                    ))}
+            </div>
+    </Layout>
+);
+
+export default ProjectsPage;
+
+export const projectsQuery = graphql`
+  query {
+    allProjectsJson(sort: { order: DESC, fields: [date] }) {
+      edges {
+        node {
+          id
+          title
+          date
+          description
+          url
+          thumbnailImage {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
