@@ -17,6 +17,7 @@
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-sharp": "^2.6.42",
     "gatsby-plugin-typography": "^2.5.11",
+    "gatsby-plugin-env-variables": "^2.0.0",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-remark": "^2.8.35",
     "gatsby-transformer-sharp": "^2.5.17",
@@ -42,6 +43,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
+    "develop": "gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

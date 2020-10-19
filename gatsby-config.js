@@ -1,5 +1,12 @@
+/*require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});*/
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 
-console.log(`**************Using environment config****************: ${process.env.GH_TOKEN}`)
+console.log(`**************Using environment config****************: ${process.env.NODE_ENV}`)
+console.log(`**************Using environment config****************: ${process.env.GATSBY_GH_TOKEN}`)
 
 
 module.exports = {
@@ -41,13 +48,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["GH_TOKEN", "GATSBY_GH_TOKEN"]
+      },
+    },
+    {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'GitHub',
         fieldName: 'github',
         url: 'https://api.github.com/graphql',
         headers: {
-          Authorization: 'bearer ${process.env.GH_TOKEN}',
+          Authorization : `Bearer ${process.env.GATSBY_GH_TOKEN}`
+          //Authorization: 'bearer ${process.env.GH_TOKEN}',
           //Authorization: 'bearer ${{secrets.GH_TOKEN}}'
         }
       },
