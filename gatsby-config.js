@@ -1,3 +1,6 @@
+
+console.log(`**************Using environment config****************: '${process.env.GITHUB_TOKEN}'`)
+
 module.exports = {
   siteMetadata: {
     title: `Ratnakar Rao Mallayagari`,
@@ -43,7 +46,7 @@ module.exports = {
         fieldName: 'github',
         url: 'https://api.github.com/graphql',
         headers: {
-          Authorization: 'bearer ${{process.env.GITHUB_TOKEN}}',
+          Authorization: 'bearer ${process.env.GITHUB_TOKEN}',
           //Authorization: 'bearer ${{secrets.GH_TOKEN}}'
         }
       },
