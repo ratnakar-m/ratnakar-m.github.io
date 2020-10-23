@@ -43,6 +43,14 @@
     cursor: pointer;
 }
 
+.menuBar li {
+    list-style-type: none;
+    padding: 0.4em 1em;
+    margin: 0.5em 1px 0 3px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 .header a:link {
     text-decoration: none;
     color: inherit;

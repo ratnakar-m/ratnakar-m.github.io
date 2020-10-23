@@ -4,16 +4,25 @@ import React from "react"
 import { Avatar } from "@primer/components"
 import headerStyles from "./header.module.css"
 import { graphql, useStaticQuery } from 'gatsby'
+import Button from "./button";
 
-const MenuItem = ({ text, url, focus }) => (
-    <div>
-        <li className={focus?headerStyles.menuItemFocus:headerStyles.menuItem}>
-            <Link to={url}>
-                <p>{text}</p>
-            </Link>
-        </li>
-    </div>
-)
+function handleItemClick(e){
+    alert(e.target.key)
+}
+
+const MenuItem = ({ text, url, focus }) => {
+
+
+    return (
+        <div>
+            <li className={focus?headerStyles.menuItemFocus:headerStyles.menuItem}>
+                <Link to={url}>
+                    <p>{text}</p>
+                </Link>
+            </li>
+        </div>
+    )
+}
 
 {/*<div style={{display: 'flex', 'flex-direction': 'row'}}>*/}
 {/*    <div className={headerStyles.headStrip}>*/}
@@ -23,7 +32,7 @@ const MenuItem = ({ text, url, focus }) => (
             margin: `5px 5px 5px 5px`
             }} className="circle" alt="user-avatar" src={avatarUrl} width="40" height="40"/>*/}
 
-const NavigationArea = ({ avatarUrl, location }) => (
+const MenuBar = ({ avatarUrl, location }) => (
     <div style={{'display': 'flex', 'flexDirection': 'row'}}>
         <img className={headerStyles.avatarRounded} alt="user-avatar" src={avatarUrl} width="35" height="35"/>
         <div style={{'justifyContent': 'flexEnd'}}>
@@ -59,7 +68,7 @@ function Header({ siteTitle, navLocation }) {
 
     return (
         <header className={headerStyles.header}>
-            <NavigationArea avatarUrl={avatarUrl} location={navLocation}/>
+            <MenuBar avatarUrl={avatarUrl} location={navLocation}/>
         </header>
     )
 }

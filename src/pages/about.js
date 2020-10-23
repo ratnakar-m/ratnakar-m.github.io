@@ -3,121 +3,90 @@ import * as d3 from "d3"
 import cloud from "d3-cloud"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import skillsData from "../data/skill_set.json"
-import adjectiveData from "../data/adjectives.json"
+import ReactWordcloud from 'react-wordcloud';
+import styles from "../styles/about.css";
+import { Resizable } from "re-resizable";
 
+import {getDefaultColors} from "../utils/utils";
 
+//import 'tippy.js/dist/tippy.css';
+//import 'tippy.js/animations/scale.css';
 
-//var fill = d3.scale.category20();
-var fill = d3.scaleOrdinal(d3.schemeCategory10);
+const data = [
+    { text: "Microservices", value: 95 },
+    { text: "Machine Learning", value: 90 },
+    { text: "Distributed Computing", value: 85 },
+    { text: "Java", value: 85 },
+    { text: "Web Technologies", value: 90 },
+    { text: "Data Warehousing", value: 80 },
+    { text: "Python", value: 75 },
+    { text: "Spring Framework", value: 70 },
+    { text: "Kafka", value: 70 },
+    { text: "Elastic Search", value: 70 },
+    { text: "Spring", value: 70 },
+    { text: "Database Systems", value: 85 },
+    { text: "Deep Learning", value: 70 },
+    { text: "Play Framework", value: 65 },
+    { text: "Data Structures", value: 80 },
+    { text: "Operating Systems", value: 85 },
+    { text: "Text Processing", value: 75 },
+    { text: "Mongo DB", value: 75 },
+];
 
-/*var wordCloudData = []
-d3.json("../data/skill_set.json", function(data) {
-    console.log(data);
-    var entry = {}
-    entry[text] = data
-    wordCloudData.push
-});
-
-const wordsData = [
-    "Hello", "world", "normally", "you", "want", "more", "words",
-    "than", "this"];*/
-
-var {width, height} = [500, 500]
-const valMap = ["Hello", "world", "normally", "you", "want", "more", "words", "than", "this"]
-    .map(function(d) {return {text: d, size: 10 + Math.random() * 90};});
-
-
-function drawSkills(words) {
-    d3.select("#skillset").append("svg")
-        .attr("width", 500)
-        .attr("height", 500)
-        .append("g")
-        .attr("transform", "translate("+250+","+250+")")
-        .selectAll("text")
-        .data(words)
-        .enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
-        .style("font-family", "Impact")
-        .style("border", "1px solid grey")
-        .style("fill", function(d, i) { return fill(i); })
-        .attr("text-anchor", "middle")
-        .attr("transform", function(d) {
-            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; });
+const callbacks = {
+    //getWordColor: word => word.value > 50 ? "blue" : "red",
+    onWordClick: console.log,
+    onWordMouseOver: console.log,
+    getWordTooltip: word => `${word.text} (${word.value}) [${word.value > 50 ? "good" : "bad"}]`,
+    //fontSize: {fontSize}
 }
 
-function drawAdjectives(words) {
-    d3.select("#adjectives").append("svg")
-        .attr("width", 500)
-        .attr("height", 500)
-        .append("g")
-        .attr("transform", "translate("+250+","+250+")")
-        .selectAll("text")
-        .data(words)
-        .enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
-        .style("font-family", "Impact")
-        .style("fill", function(d, i) { return fill(i); })
-        .attr("text-anchor", "middle")
-        .attr("transform", function(d) {
-            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; });
+const fontSize = (d) => {
+    return 40
 }
+const size = [600, 400];
+const options = {
+    //rotations: 40,
+    //rotationAngles: [-90, 0],
+    size: {size},
+    font: 'Impact',
+    fontWeight: 'bold',
+    fontSizes: [25,32],
+    transitionDuration: 0,
+};
+
+const resizeStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "solid 1px #ddd",
+    background: "#f0f0f0"
+};
 
 
-const WordCloudViz = () => {
-    useEffect(
-        () => {
-            cloud().size([500, 500])
-                /*.words([
-                    "Hello", "world", "normally", "you", "want", "more", "words",
-                    "than", "this"].map(function(d) {
-                    return {text: d, size: 10 + Math.random() * 90};
-                }))*/
-                .words(skillsData)
-                .padding(1)
-                //.rotate(function() { return ~~(Math.random() * 2) * 90; })
-                .font("Impact")
-                //.fontSize(function(d) { return d.size; })
-                .fontSize(function(d) { return 40 })
-                .on("end", drawSkills)
-                .start();
-
-            cloud().size([500, 500])
-                /*.words([
-                    "Hello", "world", "normally", "you", "want", "more", "words",
-                    "than", "this"].map(function(d) {
-                    return {text: d, size: 10 + Math.random() * 90};
-                }))*/
-                .words(adjectiveData)
-                .padding(1)
-                //.rotate(function() { return ~~(Math.random() * 2) * 90; })
-                .font("Impact")
-                //.fontSize(function(d) { return d.size; })
-                .fontSize(function(d) { return 40 })
-                .on("end", drawAdjectives)
-                .start();
-
-            console.log(valMap)
-
-        },
-        //() => draw(wordsData),
-        []
-    )
-
+const SkillCloud = () => {
     return (
-        <Layout headerText="about">
-            <SEO title="About" />
-            <div style={{'display': 'flex', 'flexDirection': 'row'}}>
-                {/*<div id='adjectives'></div>*/}
-                <div id='skillset' style={{"border": "1px solid grey"}}></div>
-            </div>
 
+        <Layout headerText="about">
+
+
+        <SEO title="About" />
+
+        <div id="skillsetWrapper" style={{'display': 'flex', 'flexDirection': 'row'}} className="skillWrapper">
+
+
+            {/*<div id='adjectives'></div>*/}
+            <div id='skillset' style={{"border": "1px solid grey", width: "100%", height: "100%" }}>
+                <ReactWordcloud words={data} callbacks={callbacks}
+                                options={options}
+                                size={size}
+                                />
+            </div>
+        </div>
         </Layout>
-    )
+
+    );
 }
 
-export default WordCloudViz
+
+export default SkillCloud
