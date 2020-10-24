@@ -43,6 +43,7 @@ const MenuBar = ({ avatarUrl, location }) => (
                     <MenuItem text='Blogs' url='/blogs' focus={location === 'blogs'}/>
                     {/*-MenuItem text='Contact' url='/contact' focus={location === 'contact'}*/}
                     <MenuItem text='Projects' url='/projects' focus={location === 'projects'}/>
+                    <MenuItem text='Learn' url='/learn' focus={location === 'learn'}/>
                 </ul>
             </nav>
         </div>
