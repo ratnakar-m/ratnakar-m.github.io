@@ -6,8 +6,6 @@ import SEO from "../components/seo"
 import ReactWordcloud from 'react-wordcloud';
 import styles from "../styles/about.css";
 import { Resizable } from "re-resizable";
-
-import {getDefaultColors} from "../utils/utils";
 import headerStyles from "../components/header.module.css";
 
 //import 'tippy.js/dist/tippy.css';
