@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React,  { Component, useEffect } from "react"
 import * as d3 from "d3"
 import cloud from "d3-cloud"
 import Layout from "../components/layout"
@@ -8,6 +8,7 @@ import styles from "../styles/about.css";
 import { Resizable } from "re-resizable";
 
 import {getDefaultColors} from "../utils/utils";
+import headerStyles from "../components/header.module.css";
 
 //import 'tippy.js/dist/tippy.css';
 //import 'tippy.js/animations/scale.css';
@@ -37,56 +38,46 @@ const callbacks = {
     //getWordColor: word => word.value > 50 ? "blue" : "red",
     onWordClick: console.log,
     onWordMouseOver: console.log,
-    getWordTooltip: word => `${word.text} (${word.value}) [${word.value > 50 ? "good" : "bad"}]`,
+    getWordTooltip: word => `${word.text} (${word.value}) [${word.value > 70 ? "good" : "bad"}]`,
     //fontSize: {fontSize}
 }
 
 const fontSize = (d) => {
     return 40
 }
-const size = [600, 400];
 const options = {
     //rotations: 40,
     //rotationAngles: [-90, 0],
-    size: {size},
     font: 'Impact',
     fontWeight: 'bold',
     fontSizes: [25,32],
     transitionDuration: 0,
 };
 
-const resizeStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "solid 1px #ddd",
-    background: "#f0f0f0"
-};
 
 
-const SkillCloud = () => {
-    return (
-
-        <Layout headerText="about">
+const size=[600, 400]
+const skillcloud = () =>  {
 
 
-        <SEO title="About" />
+        return (
+            <Layout headerText="about">
+                <SEO title="About" />
+                <div id="skillsetWrapper" style={{'display': 'flex', 'flexDirection': 'row'}} className="skillWrapper">
+                    {/*<div id='adjectives'></div>*/}
+                    <div id='skillset' style={{"border": "1px solid grey", width: "100%", height: "100%" }}>
+                        <ReactWordcloud words={data} callbacks={callbacks}
+                                        options={options}
+                                        size={[600, 400]}
+                        />
+                    </div>
+                </div>
+            </Layout>
 
-        <div id="skillsetWrapper" style={{'display': 'flex', 'flexDirection': 'row'}} className="skillWrapper">
-
-
-            {/*<div id='adjectives'></div>*/}
-            <div id='skillset' style={{"border": "1px solid grey", width: "100%", height: "100%" }}>
-                <ReactWordcloud words={data} callbacks={callbacks}
-                                options={options}
-                                size={size}
-                                />
-            </div>
-        </div>
-        </Layout>
-
-    );
+        );
 }
 
 
-export default SkillCloud
+
+
+export default skillcloud
