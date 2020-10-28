@@ -3,8 +3,8 @@ import * as d3 from "d3"
 import cloud from "d3-cloud"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import skillsData from "../data/skill_set.json"
-import adjectiveData from "../data/adjectives.json"
+import skillsData from "../../data/skill_set.json"
+import adjectiveData from "../../data/adjectives.json"
 
 
 

@@ -38,8 +38,8 @@ const MenuBar = ({ avatarUrl, location }) => (
         <div style={{'justifyContent': 'flexEnd'}}>
             <nav className={headerStyles.menuBar}>
                 <ul>
-                    <MenuItem text='Home' url='/' focus={location === 'home'}/>
-                    <MenuItem text='About' url='/about' focus={location === 'about'}/>
+                    <MenuItem text='Home' url='/' focus={location === 'about'}/>
+                    {/*<MenuItem text='About' url='/about' focus={location === 'about'}/>*/}
                     <MenuItem text='Blogs' url='/blogs' focus={location === 'blogs'}/>
                     {/*-MenuItem text='Contact' url='/contact' focus={location === 'contact'}*/}
                     <MenuItem text='Projects' url='/projects' focus={location === 'projects'}/>

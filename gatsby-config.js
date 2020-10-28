@@ -33,6 +33,18 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-lodash",
+    "typography-theme-alton",
+    "@emotion/babel-preset-css-prop",
+    "@emotion/core",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `${__dirname}/static/`
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
