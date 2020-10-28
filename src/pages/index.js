@@ -77,9 +77,9 @@ export default function About({ data }) {
                         <div css={css`border-right: 1px solid var(--hr); padding-right: ${rhythm(1)};`}>
                             <h1 id="contact"> Contact </h1>
                             <span>
-                You can email me at "<strong>ratnakar.mallayagari</strong> at <strong>gmail</strong> dot <strong>com</strong>" if you'd like to speak with me. I'm also
-                available at various platforms around the web.
+
                 <ul css={css`padding-top: 1rem;`}>
+                    <li><strong>Email:</strong> <a href="mailto:ratnakar.mallayagari@gmail.com"> ratnakar.mallayagari@gmail.com </a> </li>
                     <li><strong>Github:</strong> <a href="https://github.com/ratnakar-m"> ratnakar-m </a> </li>
                 <li><strong>Linkedin:</strong> <a href="https://www.linkedin.com/in/ratnakar-mallayagari/"> Ratnakar Mallayagari </a> </li>
                 </ul>
