@@ -26,8 +26,6 @@ function Line(){
     useEffect(draw, data);
 
     return(
-        <Layout headerText="SVG Line">
-            <SEO title="SVG Line" />
             <div className='barWrapper'>
                 <svg ref={svgRef}></svg>
                 <br/>
@@ -36,7 +34,6 @@ function Line(){
                     <button onClick={() => setData(data.filter(value => value < 35))}>Filter Data</button>
                 </div>
             </div>
-        </Layout>
     )
 }
 
