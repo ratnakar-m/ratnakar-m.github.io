@@ -1,3 +1,3 @@
-import  Bar from "./svg_bar.jsx";
+import  SVGPage from "./svg_resp.jsx";
 
-export default Bar
+export default SVGPage
