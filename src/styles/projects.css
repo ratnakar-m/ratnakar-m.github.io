@@ -1,23 +1,29 @@
+.project-list {
+    margin: 0;
+}
+
 .content {
-  padding: 1rem;
-  text-align: left;
+    padding: 1rem;
+    text-align: left;
 }
 
 .excerpt {
-  padding-bottom: 2rem;
+    padding-bottom: 2rem;
 }
 
 .item {
-  display: flex;
-  flex-direction: column;
-  flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
 }
 
+@media (min-width: 800px) {
+    .item {
+        flex-direction: row;
+    }
+}
 
 .thumbnail {
-  align-self: center;
-  width: 100%;
+    align-self: center;
+    width: 100%;
 }
-
-
-

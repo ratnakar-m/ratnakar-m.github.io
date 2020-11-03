@@ -4,6 +4,7 @@ import React from "react"
 import { Avatar } from "@primer/components"
 import headerStyles from "./header.module.css"
 import { graphql, useStaticQuery } from 'gatsby'
+import Image from "./image"
 import Button from "./button";
 
 function handleItemClick(e){
@@ -31,7 +32,7 @@ const MenuItem = ({ text, url, focus }) => {
             'border-radius': `50%`,
             margin: `5px 5px 5px 5px`
             }} className="circle" alt="user-avatar" src={avatarUrl} width="40" height="40"/>*/}
-
+{/*<img className={headerStyles.avatarRounded} alt="user-avatar" src={avatarUrl} width="35" height="35"/>*/}
 const MenuBar = ({ avatarUrl, location }) => (
     <div style={{'display': 'flex', 'flexDirection': 'row'}}>
         <img className={headerStyles.avatarRounded} alt="user-avatar" src={avatarUrl} width="35" height="35"/>

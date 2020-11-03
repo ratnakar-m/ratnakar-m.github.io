@@ -1,4 +1,5 @@
 svg {
     background: aliceblue;
+    overflow: visible;
     /*width: 300px;*/
 }

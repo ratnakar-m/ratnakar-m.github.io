@@ -1,3 +1,3 @@
-import  Line from "./svg_line.js";
+import  Bar from "./svg_bar.jsx";
 
-export default Line
+export default Bar

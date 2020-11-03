@@ -40,7 +40,10 @@
     "gatsby-source-graphql": "^2.7.6",
     "d3": "^6.2.0",
     "lodash": "^4.17.15",
-    "gatsby-plugin-lodash": "^3.3.13"
+    "gatsby-plugin-lodash": "^3.3.13",
+    "react-visibility-sensor": "^5.1.1",
+    "framer-motion": "^2.9.4",
+    "gatsby-plugin-mdx": "^1.2.52"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
