@@ -11,6 +11,7 @@ svg {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding:5px 5px 5px 5px;
 }
 
 @media (max-width:700px) {

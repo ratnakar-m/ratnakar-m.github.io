@@ -2,6 +2,7 @@
 title: "Group-based peer-to-peer file sharing system"
 date: "2019-10-10"
 context: "Academics"
+path: "/blogs/fileshare"
 ---
 
 *Overview of Group based Peer-to-Peer file sharing system*

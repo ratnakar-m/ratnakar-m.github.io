@@ -2,6 +2,7 @@
 title: "Shell Implementation (myshell)"
 date: "2019-08-10"
 context: "Academics"
+path: "/blogs/myshell"
 ---
 
 *Any shell implementation largely involves in initializing the *environment*, *parsing* the command and *execution* of commands. A shell can support variety of features ranging from basic to advanced.* 

@@ -66,8 +66,8 @@ export default function Bar(){
                 <br/>
                 <br/>
                 <div >
-                    <button style={{ marginRight: "10px"}} onClick={() => setData(data.map(value => value + 5))}>Update data</button>
-                    <button onClick={() => setData(data.filter(value => value < 35))}>Filter data</button>
+                    <button onClick={() => setData(data.map(value => value + 5))}>Update data</button>
+                    <button onClick={() => setData(data.filter(value => value > 50))}>Filter data</button>
                 </div>
             </div>
     )

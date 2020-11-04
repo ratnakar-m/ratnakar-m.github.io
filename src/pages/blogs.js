@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql} from "gatsby"
+import {Link} from "gatsby"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
@@ -36,7 +37,12 @@ export default function Home({ data }) {
                 — {node.frontmatter.date}
               </span>
                         </h3>
-                        <p>{node.excerpt}</p>
+                        <p>
+                            <span>{node.excerpt}</span>
+
+                            <Link to={ node.frontmatter.path }> <br/>Read more</Link>
+                        </p>
+
                     </div>
                 ))}
             </div>
@@ -54,6 +60,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            path
           }
           excerpt
         }

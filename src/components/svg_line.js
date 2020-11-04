@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import * as d3 from 'd3'
 import SEO from "../components/seo";
 import Layout from "../components/layout";
-import "../styles/svg_bar.css"
+import "../styles/svg_line.css"
 
 function Line(){
     const [data, setData] = useState([25, 30, 45, 60, 20, 15, 75]);
@@ -26,7 +26,7 @@ function Line(){
     useEffect(draw, data);
 
     return(
-            <div className='barWrapper'>
+            <div className='lineWrapper'>
                 <svg ref={svgRef}></svg>
                 <br/>
                 <div>
