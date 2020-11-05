@@ -24,7 +24,7 @@ export default function test()
 
                     <div>this is content for the page</div>
                     <div>
-                        <iframe src="https://www.youtube.com/embed/__qkzfWhi6g" title="dummy" style={{width: '600px', height: '400px'}} frameBorder="0" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/__qkzfWhi6g" title="dummy" style={{width: '600px', height: '400px'}} frameBorder="0" allowfullscreen="allowFullScreen"></iframe>
                     </div>
                 </div>
         </Layout>
