@@ -8,7 +8,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Ratnakar Rao Mallayagari`,
+    title: `Ratnakar`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@ratnakar-m`,
     portfolio_name:`Ratnakar Rao Mallayagari`
@@ -30,7 +30,19 @@ module.exports = {
         path: `${__dirname}/src/content`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-plugin-react-helmet",

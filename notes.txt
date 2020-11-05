@@ -1,0 +1,1 @@
+https://www.gatsbyjs.com/docs/working-with-images-in-markdown/ -> last section
