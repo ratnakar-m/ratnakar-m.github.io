@@ -30,8 +30,8 @@ export default function About({ data }) {
                             <h1 css={css``}> About me </h1>
                             <div>
                 <span>
-                I'm Ratnakar, a full stack software engineer and a data scientist. This website is dedicated to my various explorations and projects.
-                It serves as synopsis over the things I have learned and experienced over the years.
+                I'm Ratnakar, a full stack software engineer and a data scientist.
+                This website serves as synopsis over the things I have learnt and experienced over the years and it is a glimpse of my various endeavors and explorations.
                 </span>
                             </div>
                             <div css={css`padding-top: ${rhythm(0.5)};`}>
