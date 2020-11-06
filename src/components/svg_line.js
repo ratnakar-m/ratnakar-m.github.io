@@ -1,7 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
 import * as d3 from 'd3'
-import SEO from "../components/seo";
-import Layout from "../components/layout";
 import "../styles/svg_line.css"
 
 function Line(){

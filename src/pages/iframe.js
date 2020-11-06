@@ -11,6 +11,7 @@ export default function test()
                 title="Projects"
                 keywords={[`gatsby`, `application`, `react`, `projects`]}
             />
+            <div>My musing for the day</div>
                 <div
                     style={{
                         display: "flex",
@@ -22,9 +23,9 @@ export default function test()
                     }}
                 >
 
-                    <div>this is content for the page</div>
+
                     <div>
-                        <iframe src="https://www.youtube.com/embed/__qkzfWhi6g" title="dummy" style={{width: '600px', height: '400px'}} frameBorder="0" allowfullscreen="allowFullScreen"></iframe>
+                        <iframe src="https://www.youtube.com/embed/__qkzfWhi6g" title="dummy" style={{width: '40vw', height: '50vh'}} frameBorder="0" allowfullscreen="allowFullScreen"></iframe>
                     </div>
                 </div>
         </Layout>

@@ -20,6 +20,12 @@ export default function SVGPage(){
             <div className='svgWrapper'>
                 <Bar></Bar>
                 <Line></Line>
+
+            </div>
+            <div>
+                <iframe src="https://www.youtube.com/embed/__qkzfWhi6g" title="dummy"
+                        style={{width: '40vw', height: '50vh'}} frameBorder="0"
+                        allowFullScreen="allowFullScreen"></iframe>
             </div>
         </Layout>
     )
