@@ -62,7 +62,6 @@ export default function Bar(){
                     <g className="x-axis" />
                     <g className="y-axis" />
                 </svg>
-                <br/>
                 <div >
                     <button onClick={() => setData(data.map(value => value + 5))}>Update data</button>
                     <button onClick={() => setData(data.filter(value => value > 50))}>Filter data</button>
