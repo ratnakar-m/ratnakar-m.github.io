@@ -1,8 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
 import * as d3 from 'd3'
-import SEO from "../components/seo";
-import Layout from "../components/layout";
-import "../styles/svg_bar.css"
 
 export default function Bar(){
 
@@ -57,7 +54,7 @@ export default function Bar(){
     }, [data]);
 
     return(
-            <div className='barWrapper'>
+            <div className='container-col'>
                 <svg ref={svgRef}>
                     <g className="x-axis" />
                     <g className="y-axis" />

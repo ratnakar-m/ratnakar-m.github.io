@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
 import * as d3 from 'd3'
-import "../styles/svg_line.css"
 
 function Line(){
     const [data, setData] = useState([25, 30, 45, 60, 20, 15, 75]);
@@ -24,7 +23,7 @@ function Line(){
     useEffect(draw, data);
 
     return(
-            <div className='lineWrapper'>
+            <div className='container-col' >
                 <svg ref={svgRef}></svg>
                 <br/>
                 <div>
