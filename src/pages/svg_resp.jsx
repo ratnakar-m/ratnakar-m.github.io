@@ -5,6 +5,7 @@ import "../styles/svg_resp.css"
 
 import  Bar from "../components/svg_bar.jsx";
 import  Line from "../components/svg_line.js";
+import WordCloud from "../components/wordcloud";
 
 export default function SVGPage(){
 
@@ -25,6 +26,9 @@ export default function SVGPage(){
                     <iframe src="https://www.youtube.com/embed/__qkzfWhi6g"
                             title="dummy" frameBorder="0"
                             allowFullScreen="allowFullScreen"></iframe>
+                </div>
+                <div>
+                    <WordCloud/>
                 </div>
             </div>
 

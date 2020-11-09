@@ -12,6 +12,22 @@
     "size":"88"
   },
   {
+    "text":"Kafka",
+    "size":"70"
+  },
+  {
+    "text":"Python",
+    "size":"75"
+  },
+  {
+    "text":"Text Processing",
+    "size":"75"
+  },
+  {
+    "text":"Deep Learning",
+    "size":"80"
+  },
+  {
     "text":"Java",
     "size":"80"
   },
